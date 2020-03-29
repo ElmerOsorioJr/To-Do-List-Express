@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>To Do List</title>
+      <link rel="stylesheet" href="css/style.css">
+      <link href="https://fonts.googleapis.com/css?family=Artifika&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="normalize.css">
+      <link rel="stylesheet" href="font-awesome.min.css">
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <section class="flexContainer">
+        <section class="heading">
+          <h1>What Do You Have To Do Today?</h1>
+        </section>
+        <span id="markMes">Click A Task To Mark It As Complete!</span>
+        <form id="listInput" action="/toDoList" method="post">
+          <input name="task" id="listItem" type="text">
+          <button  type="submit" id="addToList">New Task</button>
+        </form>
+        <section class="shownList">
+          <ul id="addUl">
+            <% for(var i=0; i<tasksArray.length; i++) {%>
+              <li class="toDoList" style="color:<%= tasksArray[i].completed %>">
+                <span><%= tasksArray[i].task %></span>
+              </li>
+            <% } %>
+          </ul>
+        </section>
+        <button type="button" name="button" id="removeCompleted">Remove Completed</button>
+        <button type="button" name="button" id="removeAll">Clear All Tasks</button>
+      </section>
+      <script type="text/javascript" src="main.js"></script>
+    </body>
+  </html>
